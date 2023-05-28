@@ -9,13 +9,14 @@
   padding: 20px;
 }
 
-.item {
+.item a {
   margin: 10px auto;
   color: white;
+  text-decoration: none;
 }
 .item.set {
 	margin-top: 40px;
 }
-.item.active {
+.item a.active {
   color: gold;
 }
