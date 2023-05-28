@@ -1,0 +1,24 @@
+.wrapper {
+	display: flex;
+}
+
+.dialogItems {
+	background-color: #d46565;
+	height: 100%;
+	width: 20%;
+}
+
+.dialogItem {
+	padding: 20px;
+}
+.dialogItem.active {
+	color: gold;
+}
+
+.messages {
+
+}
+
+.message {
+	padding: 20px;
+}
