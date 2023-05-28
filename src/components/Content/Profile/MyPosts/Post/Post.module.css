@@ -1,0 +1,11 @@
+.tem {
+	color: greenyellow;
+}
+.item img {
+	width: 50px;
+}
+
+.like {
+	margin: 5px;
+	cursor: pointer;
+}
