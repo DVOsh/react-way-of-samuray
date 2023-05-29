@@ -1,9 +1,31 @@
 .wallpaper {
-  width: 100%;
-  height: 300px;
+  height: 250px;
   background-size: cover;
   background-image: url(https://4kwallpapers.com/images/wallpapers/wooden-boat-mirror-lake-reflection-mountain-view-pond-2560x1440-5681.jpg);
   background-repeat: no-repeat;
   background-position: center;
-  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin: 10px auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.ava {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 20px;
+  background-color: #3879ce;
+}
+.profileInfo {
+  margin-block: 0;
+  display: inline-block;
+  line-height: .7;
 }
