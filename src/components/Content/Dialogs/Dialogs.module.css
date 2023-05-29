@@ -7,7 +7,7 @@
 .dialogItems {
 	height: 100%;
 	width: 20%;
-	border: 1px solid #ccc;
+	border-right: 1px solid #ccc;
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
 	background-color: #f5f5f5;
@@ -25,19 +25,22 @@
 }
 .dialogItem a {
 	width: 100%;
-	display: inline-block;
+	display: block;
 	padding: 20px;
 	color: black;
 	text-decoration: none;
 }
-.dialogItem a.active {
+.dialogItem .active {
   background-color: rgb(73, 141, 241);
   color: white;
+	border-radius: inherit;
 }
 
 .messages {
 	width: 100%;
 	background-color: #fff;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 .message {

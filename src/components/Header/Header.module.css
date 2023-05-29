@@ -2,6 +2,7 @@
   grid-area: h;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid #ccc;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   background-color: #fff;
