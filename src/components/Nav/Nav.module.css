@@ -1,22 +1,32 @@
 .nav {
   grid-area: n;
-  background-color: #9c965d;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  padding: 20px;
+  padding: 15px 20px;
+  border-right: 1px solid #ccc;
+  border-bottom-left-radius: 5px;
+  background-color: #fff;
 }
 
+.item {
+  width: 100%;
+  align-self: center;
+}
 .item a {
-  margin: 10px auto;
-  color: white;
+  padding: 10px 20px;
+  display: block;
+  color: #000;
   text-decoration: none;
+  border-radius: 5px;
 }
 .item.set {
 	margin-top: 40px;
 }
-.item a.active {
-  color: gold;
+.item .active {
+  background-color: rgb(73, 141, 241);
+  border: 1px solid rgb(67, 130, 223);
+  color: white;
 }
