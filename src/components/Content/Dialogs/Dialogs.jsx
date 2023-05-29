@@ -6,7 +6,7 @@ const Dialogs = () => {
 		<div className={s.wrapper}>
 			<div className={s.dialogItems}>
 				<div className={s.dialogItem}>
-					<NavLink to="/dialogs/1" className={s.active}>Maks</NavLink>
+					<NavLink to="/dialogs/1">Maks</NavLink>
 				</div>
 				<div className={s.dialogItem}>
 					<NavLink to="/dialogs/2">Aleksey</NavLink>
