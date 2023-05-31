@@ -5,7 +5,6 @@ import Post from './Post/Post';
 const MyPosts = () => {
 	return (
 		<div className={s.myPosts}>
-			My posts
 			<CreatePost />
 			<div className={s.posts}>
 				<Post message='Hello' likesCount='15' />
