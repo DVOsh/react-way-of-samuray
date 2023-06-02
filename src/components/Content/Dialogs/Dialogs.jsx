@@ -16,7 +16,7 @@ const messagesData = [
 	{ id: 1, message: "Hello" },
 	{ id: 2, message: "How are you?" },
 	{ id: 3, message: "Bye" },
-]
+];
 
 
 const DialogItem = (props) => {
@@ -37,12 +37,10 @@ const Dialogs = () => {
 	return (
 		<div className={s.wrapper}>
 			<div className={s.dialogItems}>
-				<DialogItem id={dialogsData[0].id} name={dialogsData[0].name} />
-				<DialogItem id={dialogsData[1].id} name={dialogsData[1].name} />
+				{dialogsData.map(d => <DialogItem key={d.id} id={d.id} name={d.name} />)}
 			</div>
 			<div className={s.messages}>
-				<MessageItem id={messagesData[0].id} message={messagesData[0].message} />
-				<MessageItem id={messagesData[1].id} message={messagesData[1].message} />
+				{messagesData.map(m => <MessageItem key={m.id} id={m.id} message={m.message} />)}
 			</div>
 		</div>
 	);

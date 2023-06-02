@@ -12,8 +12,7 @@ const MyPosts = () => {
 		<div className={s.myPosts}>
 			<CreatePost />
 			<div className={s.posts}>
-				<Post id={postsData[0].id} message={postsData[0].message} likesCount={postsData[0].likesCount} />
-				<Post id={postsData[1].id} message={postsData[1].message} likesCount={postsData[1].likesCount} />
+				{postsData.map(p => <Post key={p.id} id={p.id} message={p.message} likesCount={p.likesCount} />)}
 			</div>
 		</div>
 	);
