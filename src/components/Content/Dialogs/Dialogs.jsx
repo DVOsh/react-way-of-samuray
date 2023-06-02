@@ -1,5 +1,6 @@
-import { NavLink } from 'react-router-dom';
 import s from './Dialogs.module.css';
+import DialogItem from './DialogItem/DialogItem';
+import MessageItem from './Message/MessageItem';
 
 const dialogsData = [
 	{ id: 1, name: "Maks" },
@@ -18,20 +19,6 @@ const messagesData = [
 	{ id: 3, message: "Bye" },
 ];
 
-
-const DialogItem = (props) => {
-	const path = '/dialogs/' + props.id;
-
-	return (<div className={s.dialogItem}>
-		<NavLink to={path} className={({ isActive }) => isActive ? s.active : undefined}>{props.name}</NavLink>
-	</div>);
-};
-
-const MessageItem = (props) => {
-	return (
-		<div className={s.message}>{props.message}</div>
-	);
-};
 
 const Dialogs = () => {
 	return (
