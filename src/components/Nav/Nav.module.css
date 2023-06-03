@@ -10,22 +10,3 @@
   border-bottom-left-radius: 5px;
   background-color: #fff;
 }
-
-.item {
-  width: 100%;
-}
-.item a {
-  padding: 10px 20px;
-  display: block;
-  color: #000;
-  text-decoration: none;
-  border-radius: 5px;
-}
-.item.set {
-	margin-top: 40px;
-}
-.item .active {
-  background-color: rgb(73, 141, 241);
-  border: 1px solid rgb(67, 130, 223);
-  color: white;
-}
