@@ -15,6 +15,8 @@
 
 .messages {
 	width: 100%;
+	display: flex;
+	flex-direction: column-reverse;
 	background-color: #fff;
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;

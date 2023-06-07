@@ -1,5 +1,7 @@
 .dialogItem {
 	border-bottom: 1px solid #ccc;
+	display: flex;
+	align-items: center;
 }
 .dialogItem:first-child{
 	border-top-left-radius: 5px;
@@ -10,8 +12,8 @@
 }
 .dialogItem a {
 	width: 100%;
-	display: block;
-	padding: 20px;
+	display: inline-block;
+	padding: 20px 10px;
 	color: black;
 	text-decoration: none;
 }
@@ -19,4 +21,12 @@
   background-color: rgb(73, 141, 241);
   color: white;
 	border-radius: inherit;
+}
+
+.dialogItemAvatar {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	margin: 5px 10px;
+	border-radius: 3px;
 }
