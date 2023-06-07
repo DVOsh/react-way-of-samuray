@@ -11,9 +11,11 @@ const state = {
 			{ id: 8, name: "Nikita" },
 		],
 		messagesData: [
-			{ id: 1, message: "Hello" },
-			{ id: 2, message: "How are you?" },
-			{ id: 3, message: "Bye" },
+			{ id: 1, message: "Hello", from: "Me" },
+			{ id: 2, message: "Hello", from: "Max" },
+			{ id: 3, message: "How are you?", from: "Me" },
+			{ id: 4, message: "Im fine", from: "Max" },
+			{ id: 5, message: "Bye", from: "Me" },
 		],
 	},
 	profileData: {

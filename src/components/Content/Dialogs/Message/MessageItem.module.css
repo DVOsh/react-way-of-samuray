@@ -1,5 +1,25 @@
+.messageItem {
+	align-self: flex-start;
+	margin: 5px 25px;
+	display: flex;
+	align-items: center;
+}
+.messageItem.me {
+	flex-direction: row-reverse;
+	align-self: flex-end;
+}
+
+.messageUser {
+	display: inline-block;
+}
+.messageUser img {
+	height: 50px;
+	width: 50px;
+}
+
 .message {
+	display: inline-block;
 	padding: 10px 20px;
-	border-bottom: 1px solid #dedede;
+	border: 1px solid #dedede;
 	border-radius: 20px;
 }
