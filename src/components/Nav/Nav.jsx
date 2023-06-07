@@ -8,11 +8,13 @@ const Nav = (props) => {
 	return (
 		<nav className={s.nav}>
 
-			<NavItem path='/profile' name="Profile" />
-			<NavItem path='/dialogs' name="Messages" />
-			<NavItem path='/news' name="News" />
-			<NavItem path='/music' name="Music" />
-			<NavItem path='/settings' name="Settings" />
+			<div className={s.links}>
+				<NavItem path='/profile' name="Profile" />
+				<NavItem path='/dialogs' name="Messages" />
+				<NavItem path='/news' name="News" />
+				<NavItem path='/music' name="Music" />
+				<NavItem path='/settings' name="Settings" />
+			</div>
 
 			<Friends data={props.data.friendsSideBar} />
 
