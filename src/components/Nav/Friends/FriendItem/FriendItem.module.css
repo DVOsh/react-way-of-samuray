@@ -1,0 +1,11 @@
+.friendItem {
+	padding: 5px;
+}
+.friendItem img{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+.friendItem span{
+	font-size: 14px;
+}
