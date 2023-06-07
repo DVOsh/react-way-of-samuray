@@ -12,7 +12,7 @@ const App = (props) => {
   return (
     <div className='app-wrapper'>
       <Header />
-      <Nav />
+      <Nav data={props.data.sideBarData} />
       <div className='app-wrapper-content'>
         <Routes>
           <Route path='/profile' Component={() => <Profile data={props.data.profileData} />} />

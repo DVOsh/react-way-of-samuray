@@ -9,7 +9,7 @@
   border-radius: 5px;
 }
 .item.set {
-	margin-top: 40px;
+	margin: 20px auto;
 }
 .item .active {
   background-color: rgb(73, 141, 241);

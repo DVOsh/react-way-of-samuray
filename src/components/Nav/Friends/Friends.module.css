@@ -1,0 +1,14 @@
+.friends {
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 20px;
+}
+.friends span {
+	display: flex;
+	justify-content: center;
+}
+
+.friendsItems {
+	display: flex;
+}
