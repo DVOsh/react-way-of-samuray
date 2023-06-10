@@ -1,7 +1,6 @@
 import s from './FriendItem.module.css';
 
 const FriendItem = (props) => {
-	console.log(props);
 	return (
 		<div className={s.friendItem}>
 			<img src={props.data.photo} alt="" />
