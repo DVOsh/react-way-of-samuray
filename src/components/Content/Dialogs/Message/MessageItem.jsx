@@ -2,7 +2,7 @@ import s from './MessageItem.module.css';
 
 const MessageItem = (props) => {
 	let messageItemClassName = s.messageItem;
-	if (props.messageData.from === 'Me')
+	if (props.messageData.fromMe)
 		messageItemClassName += ` ${s.me}`;
 	return (
 		<div className={messageItemClassName}>
