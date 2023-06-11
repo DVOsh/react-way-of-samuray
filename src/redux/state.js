@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render";
+
 const state = {
 	dialogsData: {
 		dialogsMembers: [
@@ -43,6 +45,17 @@ const state = {
 			},
 		],
 	},
+};
+
+export const addPost = postMessage => {
+	let newPost = {
+		id: state.profileData.postsData.length + 1,
+		message: postMessage,
+		likesCount: 0,
+	};
+
+	state.profileData.postsData.push(newPost);
+	rerenderEntireTree(state);
 };
 
 export default state;

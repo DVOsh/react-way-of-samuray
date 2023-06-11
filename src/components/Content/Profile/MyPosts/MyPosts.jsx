@@ -5,7 +5,7 @@ import Post from './Post/Post';
 const MyPosts = (props) => {
 	return (
 		<div className={s.myPosts}>
-			<CreatePost />
+			<CreatePost addPost={props.addPost} />
 			<div className={s.posts}>
 				{props.data.map(p => <Post key={p.id} id={p.id} message={p.message} likesCount={p.likesCount} />)}
 			</div>
