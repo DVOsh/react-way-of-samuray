@@ -4,13 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import state from './redux/state';
+import state, { addPost } from './redux/state';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App data={state} />
+      <App data={state} addPost={addPost} />
     </BrowserRouter>
   </React.StrictMode>
 );
