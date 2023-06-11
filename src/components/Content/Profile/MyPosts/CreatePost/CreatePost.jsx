@@ -11,8 +11,8 @@ const CreatePost = () => {
 
 	return (
 		<div className={s.createPost}>
-			<textarea className={s.input} placeholder="What's new?" ref={newPostEl} />
-			<button className={s.btn} onClick={addPost}>New post</button>
+			<textarea className="input" placeholder="What's new?" ref={newPostEl} />
+			<button className="btn" onClick={addPost}>New post</button>
 		</div>
 	);
 };
