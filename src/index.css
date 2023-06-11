@@ -12,3 +12,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.input {
+	display: inline-block;
+	border: none;
+	resize: none;
+	width: 80%;
+	box-shadow: 3px 3px 9px 2px #bdbdbd;
+	border-radius: 15px;
+	padding: 10px 20px;
+	outline: 1px solid #bdbdbd;
+	font-size: 1.2em;
+	transition: all .5s ease;
+}
+.input:focus {
+	box-shadow: none;
+}
+
+.btn {
+	padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+	background-color: rgb(73, 141, 241);
+  border: 1px solid rgb(67, 130, 223);
+  color: white;
+	cursor: pointer;
+	font-size: 1.2em;
+}
+.btn:active {
+	transform: scale(.98);
+}
