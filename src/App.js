@@ -15,11 +15,13 @@ const App = (props) => {
       <Nav data={props.data.sideBarData} />
       <div className='app-wrapper-content'>
         <Routes>
-          <Route path='/profile' Component={() => <Profile data={props.data.profileData} addPost={props.addPost} />} />
-          <Route path='/dialogs' Component={() => <Dialogs data={props.data.dialogsData} />} />
-          <Route path='/news' Component={() => <News />} />
-          <Route path='/music' Component={() => <Music />} />
-          <Route path='/settings' Component={() => <Settings />} />
+          <Route path='/profile' element={<Profile data={props.data.profileData}
+            addPost={props.addPost}
+            updatePostInput={props.updatePostInput} />} />
+          <Route path='/dialogs?/:dialogId' element={<Dialogs data={props.data.dialogsData} />} />
+          <Route path='/news' element={<News />} />
+          <Route path='/music' element={<Music />} />
+          <Route path='/settings' element={<Settings />} />
         </Routes>
       </div>
     </div >

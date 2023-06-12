@@ -24,7 +24,8 @@ const state = {
 		postsData: [
 			{ id: 1, message: 'Hello', likesCount: 12 },
 			{ id: 2, message: 'Its my first post', likesCount: 11 },
-		]
+		],
+		inputText: '',
 	},
 	sideBarData: {
 		friendsSideBar: [
@@ -47,14 +48,21 @@ const state = {
 	},
 };
 
+window.state = state;
+
 export const addPost = postMessage => {
 	let newPost = {
 		id: state.profileData.postsData.length + 1,
-		message: postMessage,
+		message: state.profileData.inputText,
 		likesCount: 0,
 	};
 
 	state.profileData.postsData.push(newPost);
+	rerenderEntireTree(state);
+};
+
+export const updatePostInput = newText => {
+	state.profileData.inputText = newText;
 	rerenderEntireTree(state);
 };
 
