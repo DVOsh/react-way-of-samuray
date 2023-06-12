@@ -19,6 +19,7 @@ const state = {
 			{ id: 4, message: "Im fine", fromMe: false },
 			{ id: 5, message: "Bye", fromMe: true },
 		],
+		messageText: '',
 	},
 	profileData: {
 		postsData: [
@@ -50,7 +51,7 @@ const state = {
 
 window.state = state;
 
-export const addPost = postMessage => {
+export const addPost = () => {
 	let newPost = {
 		id: state.profileData.postsData.length + 1,
 		message: state.profileData.inputText,
@@ -58,12 +59,30 @@ export const addPost = postMessage => {
 	};
 
 	state.profileData.postsData.push(newPost);
+	state.profileData.inputText = '';
 	rerenderEntireTree(state);
 };
 
-export const updatePostInput = newText => {
-	state.profileData.inputText = newText;
+export const updatePostInput = newPostText => {
+	state.profileData.inputText = newPostText;
 	rerenderEntireTree(state);
 };
+
+export const sendMessage = () => {
+	let newMessage = {
+		id: state.dialogsData.messagesData.length + 1,
+		message: state.dialogsData.messageText,
+		fromMe: true,
+	};
+
+	state.dialogsData.messagesData.push(newMessage);
+	state.dialogsData.messageText = '';
+	rerenderEntireTree(state);
+}
+
+export const updateMessageInput = newMessageText => {
+	state.dialogsData.messageText = newMessageText;
+	rerenderEntireTree(state);
+}
 
 export default state;

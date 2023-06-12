@@ -6,7 +6,6 @@ const CreatePost = props => {
 
 	const addPost = () => {
 		props.addPost();
-		props.updatePostInput('');
 	}
 
 	const updateInput = () => {
