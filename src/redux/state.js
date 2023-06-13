@@ -1,5 +1,3 @@
-import { rerenderEntireTree } from "../render";
-
 const state = {
 	dialogsData: {
 		dialogsMembers: [
@@ -51,6 +49,8 @@ const state = {
 
 window.state = state;
 
+export let rerenderEntireTree = () => { console.log('State changed') };
+
 export const addPost = () => {
 	let newPost = {
 		id: state.profileData.postsData.length + 1,
@@ -83,6 +83,11 @@ export const sendMessage = () => {
 export const updateMessageInput = newMessageText => {
 	state.dialogsData.messageText = newMessageText;
 	rerenderEntireTree(state);
+}
+
+
+export const subscribe = observer => {
+	rerenderEntireTree = observer;
 }
 
 export default state;
