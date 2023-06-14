@@ -66,7 +66,7 @@ let store = {
 
 	updatePostInput(newPostText) {
 		this._state.profileData._postText = newPostText;
-		this._subscriber(this._state);
+		this._subscriber();
 	},
 
 	addPost() {
@@ -79,7 +79,7 @@ let store = {
 
 		profileData.postsData.push(newPost);
 		profileData._postText = '';
-		this._subscriber(this._state);
+		this._subscriber();
 	},
 
 	getMessageText() {
@@ -88,7 +88,7 @@ let store = {
 
 	updateMessageInput(newMessageText) {
 		this._state.dialogsData._messageText = newMessageText;
-		this._subscriber(this._state);
+		this._subscriber();
 	},
 
 	sendMessage() {
@@ -101,7 +101,7 @@ let store = {
 
 		dialogsData.messagesData.push(newMessage);
 		dialogsData._messageText = '';
-		this._subscriber(this._state);
+		this._subscriber();
 	},
 };
 
