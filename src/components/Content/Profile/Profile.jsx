@@ -7,9 +7,7 @@ const Profile = (props) => {
 		<div>
 			<div className={s.wallpaper}></div>
 			<ProfileInfo />
-			<MyPosts data={props.data}
-				addPost={props.addPost}
-				updatePostInput={props.updatePostInput} />
+			<MyPosts store={props.store} />
 		</div>
 	);
 };
