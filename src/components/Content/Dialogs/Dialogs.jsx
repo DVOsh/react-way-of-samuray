@@ -4,18 +4,28 @@ import MessageItem from './Message/MessageItem';
 import React from 'react';
 
 const Dialogs = (props) => {
-	const dialogsItems = props.data.dialogsMembers.map(d => <DialogItem key={d.id} dialogData={d} />);
-	const messagesItems = props.data.messagesData.map(m => <MessageItem key={m.id} messageData={m} />);
+	const dialogsItems = props
+		.store
+		.getState()
+		.dialogsData
+		.dialogsMembers
+		.map(d => <DialogItem key={d.id} dialogData={d} />);
+	const messagesItems = props
+		.store
+		.getState()
+		.dialogsData
+		.messagesData
+		.map(m => <MessageItem key={m.id} messageData={m} />);
 
 	let sendMesEl = React.createRef();
 
 	const onSend = () => {
-		props.sendMessage();
+		props.store.sendMessage();
 	}
 
 	const changeMessageInput = () => {
 		let text = sendMesEl.current.value;
-		props.updateMessageInput(text);
+		props.store.updateMessageInput(text);
 	}
 
 	return (
@@ -32,7 +42,7 @@ const Dialogs = (props) => {
 						placeholder='Enter a message'
 						ref={sendMesEl}
 						onChange={changeMessageInput}
-						value={props.data.messageText} />
+						value={props.store.getMessageText()} />
 					<button className="btn" onClick={onSend}>Send</button>
 				</div>
 			</div>
