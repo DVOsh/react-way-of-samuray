@@ -16,7 +16,7 @@ const Nav = (props) => {
 				<NavItem path='/settings' name="Settings" />
 			</div>
 
-			<Friends data={props.data.friendsSideBar} />
+			<Friends state={props.state.friendsSideBar} />
 
 		</nav>
 	);

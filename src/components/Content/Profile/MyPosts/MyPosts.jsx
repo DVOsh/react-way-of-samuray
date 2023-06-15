@@ -3,15 +3,11 @@ import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-	const postsElements = props
-		.store
-		.getState()
-		.profileData
-		.postsData
-		.map(p => <Post key={p.id} id={p.id} message={p.message} likesCount={p.likesCount} />);
+	const postsElements = props.state.postsData.map(p =>
+		<Post key={p.id} id={p.id} message={p.message} likesCount={p.likesCount} />);
 	return (
 		<div className={s.myPosts}>
-			<CreatePost store={props.store} />
+			<CreatePost dispatch={props.dispatch} />
 			<div className={s.posts}>
 				{postsElements}
 			</div>

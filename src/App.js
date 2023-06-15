@@ -12,11 +12,11 @@ const App = (props) => {
   return (
     <div className='app-wrapper'>
       <Header />
-      <Nav data={props.store.getState().sideBarData} />
+      <Nav state={props.state.sideBarData} />
       <div className='app-wrapper-content'>
         <Routes>
-          <Route path='/profile' element={<Profile store={props.store} />} />
-          <Route path='/dialogs?/:dialogId' element={<Dialogs store={props.store} />} />
+          <Route path='/profile' element={<Profile state={props.state.profileData} dispatch={props.dispatch} />} />
+          <Route path='/dialogs?/:dialogId' element={<Dialogs state={props.state.dialogsData} dispatch={props.dispatch} />} />
           <Route path='/news' element={<News />} />
           <Route path='/music' element={<Music />} />
           <Route path='/settings' element={<Settings />} />

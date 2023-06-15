@@ -7,7 +7,7 @@ const Profile = (props) => {
 		<div>
 			<div className={s.wallpaper}></div>
 			<ProfileInfo />
-			<MyPosts store={props.store} />
+			<MyPosts state={props.state} dispatch={props.dispatch} />
 		</div>
 	);
 };
