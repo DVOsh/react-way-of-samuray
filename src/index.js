@@ -7,11 +7,11 @@ import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const rerenderEntireTree = () => {
+const rerenderEntireTree = (state) => {
 	root.render(
 		<React.StrictMode>
 			<BrowserRouter>
-				<App store={store} />
+				<App state={state} dispatch={store.dispatch.bind(store)} />
 			</BrowserRouter>
 		</React.StrictMode>
 	);

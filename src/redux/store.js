@@ -58,45 +58,46 @@ let store = {
 		return this._state;
 	},
 
+	dispatch(action) {
+		if (action.type === 'GET-POST-TEXT') {
+			return this._state.profileData._postText;
+		}
+		if (action.type === 'UPDATE-POST-INPUT') {
+			this._state.profileData._postText = action.newPostText;
+			this._callSubscriber(this._state);
+		}
+		if (action.type === 'ADD-POST') {
+			const profileData = this._state.profileData;
+			let newPost = {
+				id: profileData.postsData.length + 1,
+				message: profileData._postText,
+				likesCount: 0,
+			};
 
-	getPostText() {
-		return this._state.profileData._postText;
-	},
-	updatePostInput(newPostText) {
-		this._state.profileData._postText = newPostText;
-		this._callSubscriber();
-	},
-	addPost() {
-		const profileData = this._state.profileData;
-		let newPost = {
-			id: profileData.postsData.length + 1,
-			message: profileData._postText,
-			likesCount: 0,
-		};
+			profileData.postsData.push(newPost);
+			profileData._postText = '';
+			this._callSubscriber(this._state);
+		}
 
-		profileData.postsData.push(newPost);
-		profileData._postText = '';
-		this._callSubscriber();
-	},
+		if (action.type === 'GET-MESSAGE-TEXT') {
+			return this._state.dialogsData._messageText;
+		}
+		if (action.type === 'UPDATE-MESSAGE-INPUT') {
+			this._state.dialogsData._messageText = action.newMessageText;
+			this._callSubscriber(this._state);
+		}
+		if (action.type === 'SEND-MESSAGE') {
+			const dialogsData = this._state.dialogsData;
+			let newMessage = {
+				id: dialogsData.messagesData.length + 1,
+				message: dialogsData._messageText,
+				fromMe: true,
+			};
 
-	getMessageText() {
-		return this._state.dialogsData._messageText;
-	},
-	updateMessageInput(newMessageText) {
-		this._state.dialogsData._messageText = newMessageText;
-		this._callSubscriber();
-	},
-	sendMessage() {
-		const dialogsData = this._state.dialogsData;
-		let newMessage = {
-			id: dialogsData.messagesData.length + 1,
-			message: dialogsData._messageText,
-			fromMe: true,
-		};
-
-		dialogsData.messagesData.push(newMessage);
-		dialogsData._messageText = '';
-		this._callSubscriber();
+			dialogsData.messagesData.push(newMessage);
+			dialogsData._messageText = '';
+			this._callSubscriber(this._state);
+		}
 	},
 };
 
