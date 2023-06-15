@@ -1,12 +1,7 @@
 let store = {
-	_subscriber() {
+	_callSubscriber() {
 		console.log('no subscribers (observers)');
 	},
-
-	subscribe(observer) {
-		this._subscriber = observer;
-	},
-
 	_state: {
 		dialogsData: {
 			dialogsMembers: [
@@ -56,19 +51,21 @@ let store = {
 		},
 	},
 
+	subscribe(observer) {
+		this._callSubscriber = observer;
+	},
 	getState() {
 		return this._state;
 	},
 
+
 	getPostText() {
 		return this._state.profileData._postText;
 	},
-
 	updatePostInput(newPostText) {
 		this._state.profileData._postText = newPostText;
-		this._subscriber();
+		this._callSubscriber();
 	},
-
 	addPost() {
 		const profileData = this._state.profileData;
 		let newPost = {
@@ -79,18 +76,16 @@ let store = {
 
 		profileData.postsData.push(newPost);
 		profileData._postText = '';
-		this._subscriber();
+		this._callSubscriber();
 	},
 
 	getMessageText() {
 		return this._state.dialogsData._messageText;
 	},
-
 	updateMessageInput(newMessageText) {
 		this._state.dialogsData._messageText = newMessageText;
-		this._subscriber();
+		this._callSubscriber();
 	},
-
 	sendMessage() {
 		const dialogsData = this._state.dialogsData;
 		let newMessage = {
@@ -101,7 +96,7 @@ let store = {
 
 		dialogsData.messagesData.push(newMessage);
 		dialogsData._messageText = '';
-		this._subscriber();
+		this._callSubscriber();
 	},
 };
 
