@@ -8,7 +8,7 @@ const MyPosts = (props) => {
 	return (
 		<div className={s.myPosts}>
 			<CreatePost dispatch={props.dispatch} />
-			<div className={s.posts}>
+			<div className={s.postsContainer}>
 				{postsElements}
 			</div>
 		</div>
