@@ -1,3 +1,12 @@
+const GET_POST_TEXT = 'GET-POST-TEXT';
+const UPDATE_POST_INPUT = 'UPDATE-POST-INPUT';
+const ADD_POST = 'ADD-POST';
+
+const GET_MESSAGE_TEXT = 'GET-MESSAGE-TEXT';
+const UPDATE_MESSAGE_INPUT = 'UPDATE-MESSAGE-INPUT';
+const SEND_MESSAGE = 'SEND-MESSAGE';
+
+
 let store = {
 	_callSubscriber() {
 		console.log('no subscribers (observers)');
@@ -59,14 +68,14 @@ let store = {
 	},
 
 	dispatch(action) {
-		if (action.type === 'GET-POST-TEXT') {
+		if (action.type === GET_POST_TEXT) {
 			return this._state.profileData._postText;
 		}
-		if (action.type === 'UPDATE-POST-INPUT') {
+		if (action.type === UPDATE_POST_INPUT) {
 			this._state.profileData._postText = action.newPostText;
 			this._callSubscriber(this._state);
 		}
-		if (action.type === 'ADD-POST') {
+		if (action.type === ADD_POST) {
 			const profileData = this._state.profileData;
 			let newPost = {
 				id: profileData.postsData.length + 1,
@@ -79,14 +88,14 @@ let store = {
 			this._callSubscriber(this._state);
 		}
 
-		if (action.type === 'GET-MESSAGE-TEXT') {
+		if (action.type === GET_MESSAGE_TEXT) {
 			return this._state.dialogsData._messageText;
 		}
-		if (action.type === 'UPDATE-MESSAGE-INPUT') {
+		if (action.type === UPDATE_MESSAGE_INPUT) {
 			this._state.dialogsData._messageText = action.newMessageText;
 			this._callSubscriber(this._state);
 		}
-		if (action.type === 'SEND-MESSAGE') {
+		if (action.type === SEND_MESSAGE) {
 			const dialogsData = this._state.dialogsData;
 			let newMessage = {
 				id: dialogsData.messagesData.length + 1,
@@ -100,6 +109,16 @@ let store = {
 		}
 	},
 };
+
+export const getPostTextActionCreator = () => ({ type: GET_POST_TEXT });
+export const updatePostInputActionCreator = text =>
+	({ type: UPDATE_POST_INPUT, newPostText: text });
+export const addPostActionCreator = () => ({ type: ADD_POST });
+
+export const getMessageTextActionCreator = () => ({ type: GET_MESSAGE_TEXT });
+export const updateMessageInputActionCreator = text =>
+	({ type: UPDATE_MESSAGE_INPUT, newMessageText: text });
+export const sendMessageActionCreator = () => ({ type: SEND_MESSAGE });
 
 window.store = store;
 
