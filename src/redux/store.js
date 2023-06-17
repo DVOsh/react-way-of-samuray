@@ -77,6 +77,9 @@ let store = {
 		}
 		if (action.type === ADD_POST) {
 			const profileData = this._state.profileData;
+
+			if (!profileData._postText) return;
+
 			let newPost = {
 				id: profileData.postsData.length + 1,
 				message: profileData._postText,
@@ -97,6 +100,9 @@ let store = {
 		}
 		if (action.type === SEND_MESSAGE) {
 			const dialogsData = this._state.dialogsData;
+
+			if (!dialogsData._messageText) return;
+
 			let newMessage = {
 				id: dialogsData.messagesData.length + 1,
 				message: dialogsData._messageText,
