@@ -2,7 +2,7 @@ import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import MessageItem from './Message/MessageItem';
 import React from 'react';
-import { getMessageTextActionCreator, sendMessageActionCreator, updateMessageInputActionCreator } from '../../../redux/store';
+import { sendMessageActionCreator, updateMessageInputActionCreator } from '../../../redux/dialogs-reduser';
 
 const Dialogs = (props) => {
 	const dialogsItems = props.state.dialogsMembers.map(d => <DialogItem key={d.id} dialogData={d} />);
@@ -21,8 +21,6 @@ const Dialogs = (props) => {
 		props.dispatch(action);
 	}
 
-	const getMessageTextAction = getMessageTextActionCreator();
-
 	return (
 		<div className={s.wrapper}>
 			<div className={s.dialogItems}>
@@ -37,7 +35,7 @@ const Dialogs = (props) => {
 						placeholder='Enter a message'
 						ref={sendMesEl}
 						onChange={changeMessageInput}
-						value={props.dispatch(getMessageTextAction)} />
+						value={props.state.newMessageText} />
 					<button className="btn" onClick={onSend}>Send</button>
 				</div>
 			</div>
