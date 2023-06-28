@@ -1,12 +1,13 @@
 import FriendItem from './FriendItem/FriendItem';
 import s from './Friends.module.css';
 
-const Friends = (props) => {
+const Friends = props => {
+	let friendsElements = props.data.map(f => <FriendItem key={f.id} data={f} />);
 	return (
 		<div className={s.friends}>
 			<span>Friends</span>
 			<div className={s.friendsItems}>
-				{props.state.map(f => <FriendItem key={f.id} data={f} />)}
+				{friendsElements}
 			</div>
 		</div>
 	);

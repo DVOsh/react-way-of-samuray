@@ -1,22 +1,22 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Dialogs from './components/Content/Dialogs/Dialogs';
-import Profile from './components/Content/Profile/Profile';
-import Header from './components/Header/Header';
-import Nav from './components/Nav/Nav';
-import News from './components/Content/News/News';
+import DialogsContainer from './components/Content/Dialogs/DialogsContainer';
 import Music from './components/Content/Music/Music';
+import News from './components/Content/News/News';
+import Profile from './components/Content/Profile/Profile';
 import Settings from './components/Content/Settings/Settings';
+import Header from './components/Header/Header';
+import NavContainer from './components/Nav/NavContainer';
 
 const App = (props) => {
   return (
     <div className='app-wrapper'>
       <Header />
-      <Nav state={props.state.sideBarData} />
+      <NavContainer store={props.store} />
       <div className='app-wrapper-content'>
         <Routes>
-          <Route path='/profile' element={<Profile state={props.state.profileData} dispatch={props.dispatch} />} />
-          <Route path='/dialogs?/:dialogId' element={<Dialogs state={props.state.dialogsData} dispatch={props.dispatch} />} />
+          <Route path='/profile' element={<Profile store={props.store} />} />
+          <Route path='/dialogs?/:dialogId' element={<DialogsContainer store={props.store} />} />
           <Route path='/news' element={<News />} />
           <Route path='/music' element={<Music />} />
           <Route path='/settings' element={<Settings />} />

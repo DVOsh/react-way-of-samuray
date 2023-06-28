@@ -2,9 +2,7 @@ import Friends from './Friends/Friends';
 import s from './Nav.module.css';
 import NavItem from './NavItem/NavItem';
 
-
-
-const Nav = (props) => {
+const Nav = props => {
 	return (
 		<nav className={s.nav}>
 
@@ -16,7 +14,7 @@ const Nav = (props) => {
 				<NavItem path='/settings' name="Settings" />
 			</div>
 
-			<Friends state={props.state.friendsSideBar} />
+			<Friends data={props.data} />
 
 		</nav>
 	);
