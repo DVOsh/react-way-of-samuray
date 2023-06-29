@@ -6,7 +6,7 @@ const MyPosts = props => {
 	const postsElements = props.data.map(p => <Post key={p.id} id={p.id} message={p.message} likesCount={p.likesCount} />);
 	return (
 		<div className={s.myPosts}>
-			<CreatePostContainer store={props.store} />
+			<CreatePostContainer />
 			<div className={s.postsContainer}>
 				{postsElements}
 			</div>
