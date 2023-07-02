@@ -28,12 +28,13 @@ export const sendMessageActionCreator = () => ({ type: SEND_MESSAGE });
 
 const dialogsReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case UPDATE_MESSAGE_INPUT: {
-			let stateCopy = { ...state };
-			stateCopy.newMessageText = action.newMessageText;
-			return stateCopy;
-		}
-		case SEND_MESSAGE: {
+		case UPDATE_MESSAGE_INPUT:
+			return {
+				...state,
+				newMessageText: action.newMessageText,
+			};
+
+		case SEND_MESSAGE:
 			if (!state.newMessageText) return state;
 
 			let newMessage = {
@@ -42,12 +43,12 @@ const dialogsReducer = (state = initialState, action) => {
 				fromMe: true,
 			};
 
-			let stateCopy = { ...state };
-			stateCopy.messagesData = [...state.messagesData];
-			stateCopy.messagesData.push(newMessage);
-			stateCopy.newMessageText = '';
-			return stateCopy;
-		}
+			return {
+				...state,
+				messagesData: [...state.messagesData, newMessage],
+				newMessageText: '',
+			};
+
 		default: return state;
 	}
 };
