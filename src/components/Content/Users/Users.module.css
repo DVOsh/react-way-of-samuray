@@ -1,0 +1,65 @@
+.usersContainer {
+	margin: 20px;
+}
+
+.userContainer {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	border: 1px solid #ccc;
+	margin: 10px auto;
+	border-radius: 7px;
+	background: #f1f1f1;
+}
+
+.userControl {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 5px 10px;
+}
+.userControl button {
+	width: 100px;
+	font-size: 14px;
+	padding: 5px 5px;
+}
+
+.userPhoto {
+	height: 50px;
+	width: 50px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+.userContent {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 20px;
+}
+
+.userFullname {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.userStatus {
+	letter-spacing: 2px;
+}
+
+.userLocation {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+
+.userCity {
+	margin-bottom: 10px;
+}
+
+.userCountry {
+	font-weight: bold;
+}
