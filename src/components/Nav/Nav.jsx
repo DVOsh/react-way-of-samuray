@@ -11,6 +11,7 @@ const Nav = props => {
 				<NavItem path='/dialogs' name="Messages" />
 				<NavItem path='/news' name="News" />
 				<NavItem path='/music' name="Music" />
+				<NavItem path='/users' name="Users" />
 				<NavItem path='/settings' name="Settings" />
 			</div>
 
