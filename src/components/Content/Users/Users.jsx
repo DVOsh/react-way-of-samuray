@@ -4,8 +4,7 @@ import userLogo from '../../../assets/images/user.jpg';
 import React from 'react';
 
 class Users extends React.Component {
-	constructor(props) {
-		super(props);
+	componentDidMount() {
 		this.getUsers();
 	}
 
