@@ -16,8 +16,20 @@ class Users extends React.Component {
 	}
 
 	render() {
+		let pages = [];
+		let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+
+		for (let i = 1; i <= pagesCount; i++) {
+			pages.push(i);
+		}
+
 		return (
 			<div className={s.usersContainer}>
+				<div className={s.pagination}>
+					{pages.map(p => {
+						return <span key={p}>{p}</span>
+					})}
+				</div>
 				<button className='btn' onClick={this.getUsers}>Get Users</button>
 				{this.props.users.map(u => <div key={u.id} className={s.userContainer}>
 					<div className={s.userControl}>
