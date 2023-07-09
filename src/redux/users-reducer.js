@@ -6,7 +6,7 @@ let initialState = {
 	usersData: [],
 	pageSize: 5,
 	currentPage: 1,
-	totalUsersCount: 15,
+	totalUsersCount: 19,
 };
 
 export const toggleFriendshipAC = id => ({ type: TOGGLE_FRIENDSHIP, userId: id });
