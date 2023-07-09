@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { setCurrentPageAC, setUsersAC, toggleFriendshipAC } from "../../../redux/users-reducer";
+import { setCurrentPageAC, setTotalUsersCountAC, setUsersAC, toggleFriendshipAC } from "../../../redux/users-reducer";
 import Users from "./Users";
 
 let mapStateToProps = state => {
@@ -21,6 +21,9 @@ let mapDispatchToProps = dispatch => {
 		},
 		setCurrentPage: currentPage => {
 			dispatch(setCurrentPageAC(currentPage));
+		},
+		setTotalUsersCount: totalUsersCount => {
+			dispatch(setTotalUsersCountAC(totalUsersCount));
 		}
 	}
 }
