@@ -5,19 +5,38 @@ import React from 'react';
 
 class Users extends React.Component {
 	componentDidMount() {
-		this.getUsers();
+		this.getUsers(this.props.currentPage, this.props.pageSize);
 	}
 
-	getUsers = () => {
-		axios.get('https://social-network.samuraijs.com/api/1.0/users')
+	getUsers = (currentPage, pageSize) => {
+		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
 			.then(response => {
 				this.props.setUsers(response.data.items);
 			});
 	}
 
+	setCurrentPage = pageNumber => {
+		this.props.setCurrentPage(pageNumber);
+		this.getUsers(pageNumber, this.props.pageSize);
+	}
+
 	render() {
+		let pages = [];
+		let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+
+		for (let i = 1; i <= pagesCount; i++) {
+			pages.push(i);
+		}
+
 		return (
 			<div className={s.usersContainer}>
+				<div className={s.pagination}>
+					{pages.map(p => {
+						return <span key={p}
+							className={this.props.currentPage === p ? s.currentPage : undefined}
+							onClick={() => { this.setCurrentPage(p) }}>{p}</span>
+					})}
+				</div>
 				<button className='btn' onClick={this.getUsers}>Get Users</button>
 				{this.props.users.map(u => <div key={u.id} className={s.userContainer}>
 					<div className={s.userControl}>

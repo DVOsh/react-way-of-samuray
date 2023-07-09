@@ -12,6 +12,27 @@
 	background: #f1f1f1;
 }
 
+.pagination {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	height: 80px;
+}
+.currentPage {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+.pagination span {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 5px 10px;
+	margin: 5px;
+	cursor: pointer;
+	color: white;
+	background-color: rgb(73, 141, 241);
+	transition: all .3s ease;
+}
+
 .userControl {
 	display: flex;
 	flex-direction: column;
