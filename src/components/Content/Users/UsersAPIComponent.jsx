@@ -25,7 +25,7 @@ class UsersAPIComponent extends React.Component {
 			totalUsersCount={this.props.totalUsersCount}
 			pageSize={this.props.pageSize}
 			currentPage={this.props.currentPage}
-			setCurrentPage={this.props.setCurrentPage}
+			setCurrentPage={this.setCurrentPage}
 			toggleFriendship={this.props.toggleFriendship}
 		/>;
 	}
