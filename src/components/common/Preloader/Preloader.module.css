@@ -1,0 +1,22 @@
+.preloaderBox {
+	margin-top: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.preloaderImg {
+	width: 200px;
+	height: 200px;
+	animation: loop 2s linear infinite;
+}
+
+@keyframes loop {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(-359deg);
+	}
+}

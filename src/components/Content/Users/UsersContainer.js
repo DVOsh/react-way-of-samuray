@@ -3,7 +3,7 @@ import { setCurrentPageAC, setTotalUsersCountAC, setUsersAC, toggleFriendshipAC,
 import axios from 'axios';
 import React from 'react';
 import Users from './Users';
-import preloader from '../../../assets/images/preloader.png';
+import Preloader from "../../common/Preloader/Preloader";
 
 class UsersAPIComponent extends React.Component {
 	componentDidMount = () => {
@@ -28,9 +28,7 @@ class UsersAPIComponent extends React.Component {
 	render() {
 		return <>
 			{this.props.isFetching ?
-				<div>
-					<img src={preloader} />
-				</div> :
+				<Preloader /> :
 				<Users users={this.props.users}
 					totalUsersCount={this.props.totalUsersCount}
 					pageSize={this.props.pageSize}
