@@ -2,18 +2,21 @@ const TOGGLE_FRIENDSHIP = 'TOGGLE-IS-FRIEND';
 const SET_USERS = 'SET-USERS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET-TOTAL-USERS-COUNT';
+const TOGGLE_IS_FETTCHING = 'TOGGLE-IS-FETCHING';
 
 let initialState = {
 	usersData: [],
 	pageSize: 5,
 	currentPage: 1,
 	totalUsersCount: 19,
+	isFetching: false,
 };
 
 export const toggleFriendshipAC = id => ({ type: TOGGLE_FRIENDSHIP, userId: id });
 export const setUsersAC = users => ({ type: SET_USERS, users: users });
 export const setCurrentPageAC = currentPage => ({ type: SET_CURRENT_PAGE, currentPage: currentPage });
 export const setTotalUsersCountAC = totalUsersCount => ({ type: SET_TOTAL_USERS_COUNT, count: totalUsersCount });
+export const toggleIsFetchingAC = isFetching => ({ type: TOGGLE_IS_FETTCHING, isFetching: isFetching });
 
 const usersReducer = (state = initialState, action) => {
 	switch (action.type) {
@@ -42,7 +45,12 @@ const usersReducer = (state = initialState, action) => {
 			return {
 				...state,
 				totalUsersCount: action.count,
-			}
+			};
+		case TOGGLE_IS_FETTCHING:
+			return {
+				...state,
+				isFetching: action.isFetching,
+			};
 		default: return state;
 	};
 };
