@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { setCurrentPageAC, setTotalUsersCountAC, setUsersAC, toggleFriendshipAC, toggleIsFetchingAC } from "../../../redux/users-reducer";
+import { setCurrentPage, setTotalUsersCount, setUsers, toggleFriendship, toggleIsFetching } from "../../../redux/users-reducer";
 import axios from 'axios';
 import React from 'react';
 import Users from './Users';
@@ -51,26 +51,8 @@ let mapStateToProps = state => {
 	};
 };
 
-let mapDispatchToProps = dispatch => {
-	return {
-		toggleFriendship: id => {
-			dispatch(toggleFriendshipAC(id));
-		},
-		setUsers: users => {
-			dispatch(setUsersAC(users));
-		},
-		setCurrentPage: currentPage => {
-			dispatch(setCurrentPageAC(currentPage));
-		},
-		setTotalUsersCount: totalUsersCount => {
-			dispatch(setTotalUsersCountAC(totalUsersCount));
-		},
-		toggleIsFetching: isFetching => {
-			dispatch(toggleIsFetchingAC(isFetching));
-		},
-	};
-};
-
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent);
+const UsersContainer = connect(mapStateToProps, {
+	setCurrentPage, setTotalUsersCount, setUsers, toggleFriendship, toggleIsFetching
+})(UsersAPIComponent);
 
 export default UsersContainer;
