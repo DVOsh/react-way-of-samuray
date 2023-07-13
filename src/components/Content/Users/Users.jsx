@@ -1,5 +1,6 @@
 import s from './Users.module.css';
 import userLogo from '../../../assets/images/user.jpg';
+import { NavLink } from 'react-router-dom';
 
 const Users = props => {
 	let pages = [];
@@ -19,7 +20,9 @@ const Users = props => {
 		</div>
 		{props.users.map(u => <div key={u.id} className={s.userContainer}>
 			<div className={s.userControl}>
-				<img src={u.photos.small || userLogo} alt='Loading...' className={s.userPhoto} />
+				<NavLink to={`/profile/${u.id}`}>
+					<img src={u.photos.small || userLogo} alt='Loading...' className={s.userPhoto} />
+				</NavLink>
 				<button className='btn' onClick={() => { props.toggleFriendship(u.id) }}>
 					{u.followed ? 'Unfollow' : 'Follow'}
 				</button>
@@ -34,8 +37,9 @@ const Users = props => {
 					<div className={s.userCountry}>{'u.location.country'}</div>
 				</div>
 			</div>
-		</div>)}
-	</div>);
+		</div>)
+		}
+	</div >);
 };
 
 export default Users;
