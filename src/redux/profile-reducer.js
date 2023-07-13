@@ -9,9 +9,9 @@ let initialState = {
 	newPostText: '',
 };
 
-export const updatePostInputActionCreator = text =>
+export const updatePostInput = text =>
 	({ type: UPDATE_POST_INPUT, newPostText: text });
-export const addPostActionCreator = () => ({ type: ADD_POST });
+export const addPost = () => ({ type: ADD_POST });
 
 const profileReducer = (state = initialState, action) => {
 	switch (action.type) {

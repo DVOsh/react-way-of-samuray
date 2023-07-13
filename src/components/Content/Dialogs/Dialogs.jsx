@@ -10,12 +10,12 @@ const Dialogs = props => {
 	let sendMesEl = React.createRef();
 
 	const sendMessage = () => {
-		props.onSend();
+		props.sendMessage();
 	};
 
 	const updateMessageInput = () => {
 		const text = sendMesEl.current.value;
-		props.onChangeMessageInput(text);
+		props.updateMessageInput(text);
 	};
 
 	return (

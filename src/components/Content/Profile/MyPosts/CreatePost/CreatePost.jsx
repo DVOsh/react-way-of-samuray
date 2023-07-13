@@ -5,12 +5,12 @@ const CreatePost = props => {
 	const newPostEl = React.createRef();
 
 	const addPost = () => {
-		props.onAddPost();
+		props.addPost();
 	}
 
 	const updateInput = () => {
 		const text = newPostEl.current.value;
-		props.onUpdateInput(text);
+		props.updatePostInput(text);
 	}
 
 	return (

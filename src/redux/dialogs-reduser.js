@@ -22,9 +22,9 @@ let initialState = {
 	newMessageText: '',
 };
 
-export const updateMessageInputActionCreator = text =>
+export const updateMessageInput = text =>
 	({ type: UPDATE_MESSAGE_INPUT, newMessageText: text });
-export const sendMessageActionCreator = () => ({ type: SEND_MESSAGE });
+export const sendMessage = () => ({ type: SEND_MESSAGE });
 
 const dialogsReducer = (state = initialState, action) => {
 	switch (action.type) {
