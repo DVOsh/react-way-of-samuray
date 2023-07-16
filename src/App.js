@@ -4,15 +4,15 @@ import DialogsContainer from './components/Content/Dialogs/DialogsContainer';
 import Music from './components/Content/Music/Music';
 import News from './components/Content/News/News';
 import Settings from './components/Content/Settings/Settings';
-import Header from './components/Header/Header';
 import NavContainer from './components/Nav/NavContainer';
 import UsersContainer from './components/Content/Users/UsersContainer';
 import ProfileContainer from './components/Content/Profile/ProfileContainer';
+import HeaderContainer from './components/Header/HeaderContainer';
 
 const App = () => {
   return (
     <div className='app-wrapper'>
-      <Header />
+      <HeaderContainer />
       <NavContainer />
       <div className='app-wrapper-content'>
         <Routes>
