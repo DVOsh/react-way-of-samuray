@@ -12,7 +12,12 @@ class UsersAPIComponent extends React.Component {
 
 	getUsers = (currentPage, pageSize) => {
 		this.props.toggleIsFetching(true);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
+		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`, {
+			withCredentials: true,
+			headers: {
+				'API-KEY': '07c2ce06-3e87-4ef7-91ce-1867724a4b06',
+			}
+		})
 			.then(response => {
 				this.props.setUsers(response.data.items);
 				this.props.setTotalUsersCount(response.data.totalCount);
