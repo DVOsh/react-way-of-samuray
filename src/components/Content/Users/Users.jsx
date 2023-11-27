@@ -43,7 +43,9 @@ const Users = props => {
 							}
 						})
 							.then(response => {
-								props.toggleFriendship(u.id);
+								if (response.data.resultCode === 0) {
+									props.toggleFriendship(u.id);
+								}
 							});
 					}
 				}}>
