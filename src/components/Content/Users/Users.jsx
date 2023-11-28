@@ -1,7 +1,7 @@
 import s from './Users.module.css';
 import userLogo from '../../../assets/images/user.jpg';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
+import { followAPI } from '../../../api/api';
 
 const Users = props => {
 	let pages = [];
@@ -26,27 +26,17 @@ const Users = props => {
 				</NavLink>
 				<button className='btn' onClick={() => {
 					if (u.followed) {
-						axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
-							withCredentials: true,
-							headers: {
-								'API-KEY': '07c2ce06-3e87-4ef7-91ce-1867724a4b06',
-							}
-						})
-							.then(response => {
+						followAPI.unfollowRequest(u.id).then(data => {
+							if (data.resultCode === 0) {
 								props.toggleFriendship(u.id);
-							});
-					} else {
-						axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-							withCredentials: true,
-							headers: {
-								'API-KEY': '07c2ce06-3e87-4ef7-91ce-1867724a4b06',
 							}
-						})
-							.then(response => {
-								if (response.data.resultCode === 0) {
-									props.toggleFriendship(u.id);
-								}
-							});
+						});
+					} else {
+						followAPI.followRequest(u.id).then(data => {
+							if (data.resultCode === 0) {
+								props.toggleFriendship(u.id);
+							}
+						});
 					}
 				}}>
 					{u.followed ? 'Unfollow' : 'Follow'}

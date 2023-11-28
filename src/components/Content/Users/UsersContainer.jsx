@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 import { setCurrentPage, setTotalUsersCount, setUsers, toggleFriendship, toggleIsFetching } from "../../../redux/users-reducer";
-import axios from 'axios';
 import React from 'react';
 import Users from './Users';
 import Preloader from "../../common/Preloader/Preloader";
+import { usersAPI } from "../../../api/api";
 
 class UsersAPIComponent extends React.Component {
 	componentDidMount = () => {
@@ -12,17 +12,11 @@ class UsersAPIComponent extends React.Component {
 
 	getUsers = (currentPage, pageSize) => {
 		this.props.toggleIsFetching(true);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`, {
-			withCredentials: true,
-			headers: {
-				'API-KEY': '07c2ce06-3e87-4ef7-91ce-1867724a4b06',
-			}
-		})
-			.then(response => {
-				this.props.setUsers(response.data.items);
-				this.props.setTotalUsersCount(response.data.totalCount);
-				this.props.toggleIsFetching(false);
-			});
+		usersAPI.getUsersRequest(currentPage, pageSize).then(data => {
+			this.props.setUsers(data.items);
+			this.props.setTotalUsersCount(data.totalCount);
+			this.props.toggleIsFetching(false);
+		});
 	}
 
 	setCurrentPage = pageNumber => {
